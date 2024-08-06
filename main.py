@@ -7,8 +7,7 @@ from dotenv import load_dotenv
 import os
 from bson import json_util,ObjectId
 from flask import after_this_request
-from api.mailServer import EmailSender
-from api.mailsTemplates import validation_message_group
+
 load_dotenv()
 
 SECRET_KEY = os.environ.get("SECRET")
