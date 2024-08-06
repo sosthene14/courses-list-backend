@@ -7,8 +7,8 @@ from dotenv import load_dotenv
 import os
 from bson import json_util,ObjectId
 from flask import after_this_request
-from mailServer import EmailSender
-from mailsTemplates import validation_message_group
+from api.mailServer import EmailSender
+from api.mailsTemplates import validation_message_group
 load_dotenv()
 
 SECRET_KEY = os.environ.get("SECRET")
@@ -185,4 +185,5 @@ def running():
     return jsonify({'message': 'rocolis backend is running'}), 200
     
 if __name__ == '__main__':
-    app.run(debug=True)
+    from waitress import serve
+    serve(app)
